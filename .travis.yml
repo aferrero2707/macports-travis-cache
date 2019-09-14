@@ -4,9 +4,12 @@ osx_image: xcode7.3
 #osx_image: xcode9.4
 
 before_script:
+ - wget -c https://github.com/aferrero2707/macports-travis-cache/releases/download/continuous/macports-travis-cache-7.3-1.tgz
+ - sudo tar xf macports-travis-cache-7.3-1.tgz
+ - rm -f macports-travis-cache-7.3-1.tgz
  - bash ./install.sh
 after_success:
- - tar czf macports-travis-cache-7.3-1.tgz /opt/local
+ - tar czf macports-travis-cache-7.3-2.tgz /opt/local
  - wget -c https://github.com/aferrero2707/uploadtool/raw/master/upload_rotate.sh
  - bash  ./upload_rotate.sh "continuous" macports-travis-cache*.tgz >& /dev/null
 
