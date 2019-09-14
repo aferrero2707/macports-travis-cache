@@ -10,6 +10,7 @@ before_script:
  - rm -f macports-travis-cache-7.3-1.tgz
  - bash ./install.sh
 after_success:
+ - pwd
  - tar czf macports-travis-cache-7.3-2.tgz /opt/local
  - wget -c https://github.com/aferrero2707/uploadtool/raw/master/upload_rotate.sh
  - bash  ./upload_rotate.sh "continuous" macports-travis-cache*.tgz >& /dev/null
